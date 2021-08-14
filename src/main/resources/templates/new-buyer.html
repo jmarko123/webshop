@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <title>Create New Buyer</title>
+</head>
+<body>
+<div class="container" style="padding-top: 40px;">
+    <h1 align="center">Create New Buyer</h1>
+    <br/>
+    <a href="http://localhost:8080/buyers" class="btn btn-primary">Back</a>
+
+    <form action="#" th:action="@{/savebuyer}" th:object="${buyer}" method="post">
+        <div class="form-group">
+            <label>Buyer Name:</label>
+            <input type="text" class="form-control" th:field="*{buyerName}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Buyer Email:</label>
+            <input type="text" class="form-control" th:field="*{buyerEmail}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Sales made:</label>
+            <input type="text" class="form-control" th:field="*{salesMade}" required>
+        </div>
+        <div class="form-row text-center">
+            <div class="col-12">
+
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
+</body>
+</html>

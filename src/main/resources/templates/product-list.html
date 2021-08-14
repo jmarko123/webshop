@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<h2 class="text-truncate">Product List</h2>
+<div class="table-responsive" id="project-team-scroll" tabindex="1" style="height: 400px; overflow: hidden; outline: none;">
+    <table class="table table-hover table-xl mb-0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.productName}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.quantity}"></td>
+        <!--<td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>-->
+    </tr>
+    </tbody>
+</table>
+    <a href="/new-product"><button class="btn-primary">New Products</button></a>
+    <a href="/edit-product"><button class="btn-primary">Edit Product</button></a>
+    <a href="/delete-product"><button class="btn-primary">Delete Product</button></a>
+    <a href="/sales"><button class="btn-primary">Sales</button></a>
+    <a href="buyers"> <button class="btn-primary">Buyers</button></a>
+</div>
+</body>
+</html>
