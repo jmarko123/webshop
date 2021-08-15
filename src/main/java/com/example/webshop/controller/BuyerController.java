@@ -33,4 +33,30 @@ public class BuyerController {
         buyerService.save(buyer);
         return "redirect:/buyers";
     }
+
+    @RequestMapping(value = "/edit-buyer")
+    public String editBuyer (Model model){
+        Buyer buyer = new Buyer();
+        model.addAttribute("buyer", buyer);
+        return "edit-buyer";
+    }
+
+    @RequestMapping(value = "/editbuyer", method = RequestMethod.POST)
+    public String editBuyer (@ModelAttribute("buyer")Buyer buyer){
+        buyerService.save(buyer);
+        return "redirect:/buyers";
+    }
+
+    @RequestMapping (value = "/delete-buyer")
+    public String deleteBuyer (Model model){
+        Buyer buyer = new Buyer();
+        model.addAttribute("buyer", buyer);
+        return "delete-buyer";
+    }
+
+    @RequestMapping(value = "/deletebuyer", method = RequestMethod.POST)
+    public String deleteBuyer (@ModelAttribute("buyer")Buyer buyer){
+        buyerService.delete(buyer);
+        return "redirect:/buyers";
+    }
 }

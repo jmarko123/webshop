@@ -9,6 +9,7 @@ public class Buyer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
 
     @Column(name = "buyer_name")
@@ -19,6 +20,17 @@ public class Buyer {
 
     @Column(name = "sales_made")
     private int salesMade;
+
+    @OneToOne(mappedBy = "buyer")
+    private Sales sales;
+
+    public Sales getSales() {
+        return sales;
+    }
+
+    public void setSales(Sales sales) {
+        this.sales = sales;
+    }
 
     public Buyer() {
     }

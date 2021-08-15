@@ -8,6 +8,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "product_name")
@@ -16,6 +17,10 @@ public class Product {
     private double price;
     @Column(name = "quantity")
     private int quantity;
+
+
+    @OneToOne(mappedBy = "product")
+    private Sales sales;
 
     public Product() {
     }
